@@ -1,8 +1,0 @@
-function r = correlation(X,Y)
-    x_m = mean(X);
-    y_m = mean(Y);
-    sum_nom = 0;
-    for i=1:length
-    sum_nom = sum_nom + 
-end
-
