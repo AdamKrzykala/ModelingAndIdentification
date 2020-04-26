@@ -1,0 +1,32 @@
+clear all;
+close all;
+%Estymator kowariancji i korelacji 
+%Zależność liniowa X2 = aX1 + b
+a = 10;
+b = 1.2;
+N = 1:10:1000;
+
+for j=1:length(N)
+   for i=1:N(j)
+        X1(i) = unifrnd(0,1); 
+        X2(i) = a*X1(i) + b;
+   end
+   R(j) = correlation(X1,X2);
+end
+figure(1)
+plot(R);
+grid on;
+
+%Zależność kwadratowa X2 = X1^2
+
+for j=1:length(N)
+   for i=1:N(j)
+       X1(i) = normrnd(0,1); 
+       X2(i) = X1(i);
+   end
+   K(j) = correlation(X1,X2);
+end
+
+figure(2)
+plot(K);
+grid on;
